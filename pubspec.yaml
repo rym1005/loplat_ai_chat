@@ -1,0 +1,56 @@
+name: plengi_ai
+description: "AI Chat and Location Based Service App"
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.8.1
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.8
+  retrofit: ^4.0.3
+  dio: ^5.4.0
+  json_annotation: ^4.8.1
+  geolocator: ^10.1.0
+  permission_handler: ^11.1.0
+  provider: ^6.1.1
+  flutter_dotenv: ^5.1.0
+  hive: ^2.2.3
+  hive_flutter: ^1.1.0
+  loplat_plengi: 1.2.7
+  http: ^1.4.0
+  fluttertoast: ^8.2.12
+  #Bloc
+  flutter_bloc: ^8.1.1
+  freezed_annotation: ^2.4.1
+  shared_preferences: ^2.5.3
+  flutter_tts: ^4.2.3
+  flutter_local_notifications: ^19.2.1
+  common_utils_services:
+    path: ../common_utils_services
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  retrofit_generator: ^8.0.6
+  build_runner: ^2.4.15
+  json_serializable: ^6.7.1
+  flutter_lints: ^5.0.0
+  hive_generator: ^2.0.1
+  freezed: ^2.4.6
+
+flutter:
+  uses-material-design: true
+  assets:
+    - .env
