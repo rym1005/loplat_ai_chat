@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:common_utils_services/services/notification_service.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart'
     hide Message;
@@ -11,6 +12,7 @@ import 'package:common_utils_services/services/ai_services.dart';
 import '../../../models/frequent_question.dart';
 import '../../../services/frequent_question_service.dart';
 import 'package:common_utils_services/utils/location_utils.dart';
+import '../../../services/settings_service.dart';
 import '../../../utils/permission/permission_utils.dart';
 import '../../../services/tts_service.dart';
 import 'home_event.dart';
@@ -26,7 +28,11 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
       FlutterLocalNotificationsPlugin();
   late NotificationService? _notificationService;
   StreamSubscription? _aiResponseSubscription;
+
+  static const EVENT_CHANNEL = 'plengi.ai/toFlutter';
+
   BuildContext? _context;
+  final methodChannel = MethodChannel(EVENT_CHANNEL);
 
   HomeBloc() : super(const HomeState()) {
     on<Init>(_onInit);
@@ -45,6 +51,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     on<AiResponseStreamDone>(_onAiResponseStreamDone);
     on<AiResponseStreamError>(_onAiResponseStreamError);
     on<ShowFrequentQuestions>(_onShowFrequentQuestions);
+    on<HideLocationHistory>(_onHideLocationHistory);
   }
 
   Future<void> _onInit(Init event, Emitter<HomeState> emit) async {
@@ -62,21 +69,12 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
 
   Future<void> _initHive(Emitter<HomeState> emit) async {
     try {
+      _notificationService = NotificationService();
+
       Hive.registerAdapter(MessageAdapter());
       Hive.registerAdapter(LocationHistoryAdapter());
-      print("rymins  init message");
       _messageBox = await Hive.openBox<Message>('messages');
-      // await _loadMessages();
-      await _locationHistoryManager.initialize(10, (location) {
-        Future.microtask(() async {
-          final data = await AIServices.instance.getAIResponse(location, []);
-          final summary = _summarizePlengiResponse(data);
-          await _notificationService?.showNotification(
-            title: summary,
-            body: '새로운 위치 정보가 있습니다.',
-          );
-        });
-      });
+
       await frequentQuestionService.initialize();
       await _onLoadFrequentQuestions(
         LoadFrequentQuestions(state.selectedCategory),
@@ -93,8 +91,21 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     return response.split('\n')[0];
   }
 
+  Future<void> _onHistorySummary() async{
+    await _locationHistoryManager.initialize(10, (location) {
+      Future.microtask(() async {
+        final data = await AIServices.instance.getAIResponse(location, []);
+        final summary = _summarizePlengiResponse(data);
+        print("rymins summary : $summary");
+        await _notificationService?.showNotification(
+          title: summary,
+          body: '새로운 위치 정보가 있습니다.',
+        );
+      });
+    });
+  }
+
   Future<void> _onLoad(LoadHomeData event, Emitter<HomeState> emit) async {
-    print("rymins loading data ");
     emit(state.copyWith(isLoading: true, errorMessage: null));
     try {
       emit(
@@ -127,11 +138,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     _aiResponseSubscription?.cancel();
     emit(state.copyWith(currentAiResponse: ''));
 
+    final setting = SettingsService();
     try {
       String locationContext = '';
+      setting.getPromptWithLocationChat();
       _aiResponseSubscription = AIServices.instance
           .getAIResponseStream(
-            "promt입니다.",
+            setting.getPromptWithLocationChat(),
             '$locationContext\n${event.message}',
             state.messages,
           )
@@ -249,14 +262,31 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     ShowLocationHistory event,
     Emitter<HomeState> emit,
   ) {
-    // This should be handled in the UI layer
+    emit(state.copyWith(isLoading: true));
+    try {
+      emit(
+        state.copyWith(
+          isLoading: false,
+          isShowingLocationHistory: true,
+          locationHistory: _locationHistoryManager.locationHistory,
+        ),
+      );
+    } catch (e) {
+      emit(state.copyWith(isLoading: false, errorMessage: "데이터를 불러오지 못했습니다"));
+    }
+  }
+  void _onHideLocationHistory(
+      HideLocationHistory event,
+      Emitter<HomeState> emit,
+      ) {
+    emit(state.copyWith(isShowingLocationHistory: false));
   }
 
   Future<void> _onCheckCurrentLocation(
     CheckCurrentLocation event,
     Emitter<HomeState> emit,
   ) async {
-    // This should be handled in the UI layer
+    await LocationUtils.getCurrentLocation();
   }
 
   Future<void> _onShowFrequentQuestions(

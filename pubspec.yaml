@@ -35,7 +35,6 @@ dependencies:
   flutter_bloc: ^8.1.1
   freezed_annotation: ^2.4.1
   shared_preferences: ^2.5.3
-  flutter_tts: ^4.2.3
   flutter_local_notifications: ^19.2.1
   common_utils_services:
     path: ../common_utils_services

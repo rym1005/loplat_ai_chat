@@ -38,6 +38,7 @@ class MainActivity : FlutterActivity() {
 
         Plengi.getInstance(this@MainActivity).listener = object : PlengiListener {
             override fun listen(response: PlengiResponse?) {
+                android.util.Log.d("rymins","response :$response")
                 eventSink?.success(Gson().toJson(response))
             }
         }

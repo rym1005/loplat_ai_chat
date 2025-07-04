@@ -32,6 +32,7 @@ mixin _$HomeEvent {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -54,6 +55,7 @@ mixin _$HomeEvent {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -76,6 +78,7 @@ mixin _$HomeEvent {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -100,6 +103,7 @@ mixin _$HomeEvent {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -123,6 +127,7 @@ mixin _$HomeEvent {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -144,6 +149,7 @@ mixin _$HomeEvent {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -254,6 +260,7 @@ class _$InitImpl implements Init {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -279,6 +286,7 @@ class _$InitImpl implements Init {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -304,6 +312,7 @@ class _$InitImpl implements Init {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -334,6 +343,7 @@ class _$InitImpl implements Init {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -360,6 +370,7 @@ class _$InitImpl implements Init {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -384,6 +395,7 @@ class _$InitImpl implements Init {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -464,6 +476,7 @@ class _$LoadHomeDataImpl implements LoadHomeData {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -489,6 +502,7 @@ class _$LoadHomeDataImpl implements LoadHomeData {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -514,6 +528,7 @@ class _$LoadHomeDataImpl implements LoadHomeData {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -544,6 +559,7 @@ class _$LoadHomeDataImpl implements LoadHomeData {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -570,6 +586,7 @@ class _$LoadHomeDataImpl implements LoadHomeData {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -594,6 +611,7 @@ class _$LoadHomeDataImpl implements LoadHomeData {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -693,6 +711,7 @@ class _$SendMessageImpl implements SendMessage {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -718,6 +737,7 @@ class _$SendMessageImpl implements SendMessage {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -743,6 +763,7 @@ class _$SendMessageImpl implements SendMessage {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -773,6 +794,7 @@ class _$SendMessageImpl implements SendMessage {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -799,6 +821,7 @@ class _$SendMessageImpl implements SendMessage {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -823,6 +846,7 @@ class _$SendMessageImpl implements SendMessage {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -903,6 +927,7 @@ class _$CancelAiResponseImpl implements CancelAiResponse {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -928,6 +953,7 @@ class _$CancelAiResponseImpl implements CancelAiResponse {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -953,6 +979,7 @@ class _$CancelAiResponseImpl implements CancelAiResponse {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -983,6 +1010,7 @@ class _$CancelAiResponseImpl implements CancelAiResponse {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -1009,6 +1037,7 @@ class _$CancelAiResponseImpl implements CancelAiResponse {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -1033,6 +1062,7 @@ class _$CancelAiResponseImpl implements CancelAiResponse {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -1105,6 +1135,7 @@ class _$ResetConversationImpl implements ResetConversation {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -1130,6 +1161,7 @@ class _$ResetConversationImpl implements ResetConversation {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -1155,6 +1187,7 @@ class _$ResetConversationImpl implements ResetConversation {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -1185,6 +1218,7 @@ class _$ResetConversationImpl implements ResetConversation {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -1211,6 +1245,7 @@ class _$ResetConversationImpl implements ResetConversation {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -1235,6 +1270,7 @@ class _$ResetConversationImpl implements ResetConversation {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -1309,6 +1345,7 @@ class _$ShowFrequentQuestionsImpl implements ShowFrequentQuestions {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -1334,6 +1371,7 @@ class _$ShowFrequentQuestionsImpl implements ShowFrequentQuestions {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -1359,6 +1397,7 @@ class _$ShowFrequentQuestionsImpl implements ShowFrequentQuestions {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -1389,6 +1428,7 @@ class _$ShowFrequentQuestionsImpl implements ShowFrequentQuestions {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -1415,6 +1455,7 @@ class _$ShowFrequentQuestionsImpl implements ShowFrequentQuestions {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -1439,6 +1480,7 @@ class _$ShowFrequentQuestionsImpl implements ShowFrequentQuestions {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -1541,6 +1583,7 @@ class _$LoadFrequentQuestionsImpl implements LoadFrequentQuestions {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -1566,6 +1609,7 @@ class _$LoadFrequentQuestionsImpl implements LoadFrequentQuestions {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -1591,6 +1635,7 @@ class _$LoadFrequentQuestionsImpl implements LoadFrequentQuestions {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -1621,6 +1666,7 @@ class _$LoadFrequentQuestionsImpl implements LoadFrequentQuestions {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -1647,6 +1693,7 @@ class _$LoadFrequentQuestionsImpl implements LoadFrequentQuestions {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -1671,6 +1718,7 @@ class _$LoadFrequentQuestionsImpl implements LoadFrequentQuestions {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -1789,6 +1837,7 @@ class _$AddQuestionImpl implements AddQuestion {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -1814,6 +1863,7 @@ class _$AddQuestionImpl implements AddQuestion {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -1839,6 +1889,7 @@ class _$AddQuestionImpl implements AddQuestion {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -1869,6 +1920,7 @@ class _$AddQuestionImpl implements AddQuestion {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -1895,6 +1947,7 @@ class _$AddQuestionImpl implements AddQuestion {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -1919,6 +1972,7 @@ class _$AddQuestionImpl implements AddQuestion {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -2047,6 +2101,7 @@ class _$UpdateQuestionImpl implements UpdateQuestion {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -2072,6 +2127,7 @@ class _$UpdateQuestionImpl implements UpdateQuestion {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -2097,6 +2153,7 @@ class _$UpdateQuestionImpl implements UpdateQuestion {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -2127,6 +2184,7 @@ class _$UpdateQuestionImpl implements UpdateQuestion {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -2153,6 +2211,7 @@ class _$UpdateQuestionImpl implements UpdateQuestion {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -2177,6 +2236,7 @@ class _$UpdateQuestionImpl implements UpdateQuestion {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -2289,6 +2349,7 @@ class _$DeleteQuestionImpl implements DeleteQuestion {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -2314,6 +2375,7 @@ class _$DeleteQuestionImpl implements DeleteQuestion {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -2339,6 +2401,7 @@ class _$DeleteQuestionImpl implements DeleteQuestion {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -2369,6 +2432,7 @@ class _$DeleteQuestionImpl implements DeleteQuestion {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -2395,6 +2459,7 @@ class _$DeleteQuestionImpl implements DeleteQuestion {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -2419,6 +2484,7 @@ class _$DeleteQuestionImpl implements DeleteQuestion {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -2499,6 +2565,7 @@ class _$ShowSettingsImpl implements ShowSettings {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -2524,6 +2591,7 @@ class _$ShowSettingsImpl implements ShowSettings {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -2549,6 +2617,7 @@ class _$ShowSettingsImpl implements ShowSettings {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -2579,6 +2648,7 @@ class _$ShowSettingsImpl implements ShowSettings {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -2605,6 +2675,7 @@ class _$ShowSettingsImpl implements ShowSettings {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -2629,6 +2700,7 @@ class _$ShowSettingsImpl implements ShowSettings {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -2729,6 +2801,7 @@ class _$CopyToClipboardImpl implements CopyToClipboard {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -2754,6 +2827,7 @@ class _$CopyToClipboardImpl implements CopyToClipboard {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -2779,6 +2853,7 @@ class _$CopyToClipboardImpl implements CopyToClipboard {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -2809,6 +2884,7 @@ class _$CopyToClipboardImpl implements CopyToClipboard {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -2835,6 +2911,7 @@ class _$CopyToClipboardImpl implements CopyToClipboard {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -2859,6 +2936,7 @@ class _$CopyToClipboardImpl implements CopyToClipboard {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -2940,6 +3018,7 @@ class _$ShowLocationHistoryImpl implements ShowLocationHistory {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -2965,6 +3044,7 @@ class _$ShowLocationHistoryImpl implements ShowLocationHistory {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -2990,6 +3070,7 @@ class _$ShowLocationHistoryImpl implements ShowLocationHistory {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -3020,6 +3101,7 @@ class _$ShowLocationHistoryImpl implements ShowLocationHistory {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -3046,6 +3128,7 @@ class _$ShowLocationHistoryImpl implements ShowLocationHistory {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -3070,6 +3153,7 @@ class _$ShowLocationHistoryImpl implements ShowLocationHistory {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -3085,6 +3169,215 @@ class _$ShowLocationHistoryImpl implements ShowLocationHistory {
 
 abstract class ShowLocationHistory implements HomeEvent {
   const factory ShowLocationHistory() = _$ShowLocationHistoryImpl;
+}
+
+/// @nodoc
+abstract class _$$HideLocationHistoryImplCopyWith<$Res> {
+  factory _$$HideLocationHistoryImplCopyWith(_$HideLocationHistoryImpl value,
+          $Res Function(_$HideLocationHistoryImpl) then) =
+      __$$HideLocationHistoryImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$HideLocationHistoryImplCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res, _$HideLocationHistoryImpl>
+    implements _$$HideLocationHistoryImplCopyWith<$Res> {
+  __$$HideLocationHistoryImplCopyWithImpl(_$HideLocationHistoryImpl _value,
+      $Res Function(_$HideLocationHistoryImpl) _then)
+      : super(_value, _then);
+
+  /// Create a copy of HomeEvent
+  /// with the given fields replaced by the non-null parameter values.
+}
+
+/// @nodoc
+
+class _$HideLocationHistoryImpl implements HideLocationHistory {
+  const _$HideLocationHistoryImpl();
+
+  @override
+  String toString() {
+    return 'HomeEvent.hideLocationHistory()';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$HideLocationHistoryImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(BuildContext context) init,
+    required TResult Function() load,
+    required TResult Function(String message) sendMessage,
+    required TResult Function() cancelAiResponse,
+    required TResult Function() resetConversation,
+    required TResult Function() showFrequentQuestions,
+    required TResult Function(String category) loadFrequentQuestions,
+    required TResult Function(String question, String category) addQuestion,
+    required TResult Function(int index, String question, String category)
+        updateQuestion,
+    required TResult Function(int index) deleteQuestion,
+    required TResult Function() showSettings,
+    required TResult Function(String message) copyToClipboard,
+    required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
+    required TResult Function() checkCurrentLocation,
+    required TResult Function(String chunk) aiResponseStreamChanged,
+    required TResult Function() aiResponseStreamDone,
+    required TResult Function(dynamic error) aiResponseStreamError,
+  }) {
+    return hideLocationHistory();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function(BuildContext context)? init,
+    TResult? Function()? load,
+    TResult? Function(String message)? sendMessage,
+    TResult? Function()? cancelAiResponse,
+    TResult? Function()? resetConversation,
+    TResult? Function()? showFrequentQuestions,
+    TResult? Function(String category)? loadFrequentQuestions,
+    TResult? Function(String question, String category)? addQuestion,
+    TResult? Function(int index, String question, String category)?
+        updateQuestion,
+    TResult? Function(int index)? deleteQuestion,
+    TResult? Function()? showSettings,
+    TResult? Function(String message)? copyToClipboard,
+    TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
+    TResult? Function()? checkCurrentLocation,
+    TResult? Function(String chunk)? aiResponseStreamChanged,
+    TResult? Function()? aiResponseStreamDone,
+    TResult? Function(dynamic error)? aiResponseStreamError,
+  }) {
+    return hideLocationHistory?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(BuildContext context)? init,
+    TResult Function()? load,
+    TResult Function(String message)? sendMessage,
+    TResult Function()? cancelAiResponse,
+    TResult Function()? resetConversation,
+    TResult Function()? showFrequentQuestions,
+    TResult Function(String category)? loadFrequentQuestions,
+    TResult Function(String question, String category)? addQuestion,
+    TResult Function(int index, String question, String category)?
+        updateQuestion,
+    TResult Function(int index)? deleteQuestion,
+    TResult Function()? showSettings,
+    TResult Function(String message)? copyToClipboard,
+    TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
+    TResult Function()? checkCurrentLocation,
+    TResult Function(String chunk)? aiResponseStreamChanged,
+    TResult Function()? aiResponseStreamDone,
+    TResult Function(dynamic error)? aiResponseStreamError,
+    required TResult orElse(),
+  }) {
+    if (hideLocationHistory != null) {
+      return hideLocationHistory();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(Init value) init,
+    required TResult Function(LoadHomeData value) load,
+    required TResult Function(SendMessage value) sendMessage,
+    required TResult Function(CancelAiResponse value) cancelAiResponse,
+    required TResult Function(ResetConversation value) resetConversation,
+    required TResult Function(ShowFrequentQuestions value)
+        showFrequentQuestions,
+    required TResult Function(LoadFrequentQuestions value)
+        loadFrequentQuestions,
+    required TResult Function(AddQuestion value) addQuestion,
+    required TResult Function(UpdateQuestion value) updateQuestion,
+    required TResult Function(DeleteQuestion value) deleteQuestion,
+    required TResult Function(ShowSettings value) showSettings,
+    required TResult Function(CopyToClipboard value) copyToClipboard,
+    required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
+    required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
+    required TResult Function(AiResponseStreamChanged value)
+        aiResponseStreamChanged,
+    required TResult Function(AiResponseStreamDone value) aiResponseStreamDone,
+    required TResult Function(AiResponseStreamError value)
+        aiResponseStreamError,
+  }) {
+    return hideLocationHistory(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(Init value)? init,
+    TResult? Function(LoadHomeData value)? load,
+    TResult? Function(SendMessage value)? sendMessage,
+    TResult? Function(CancelAiResponse value)? cancelAiResponse,
+    TResult? Function(ResetConversation value)? resetConversation,
+    TResult? Function(ShowFrequentQuestions value)? showFrequentQuestions,
+    TResult? Function(LoadFrequentQuestions value)? loadFrequentQuestions,
+    TResult? Function(AddQuestion value)? addQuestion,
+    TResult? Function(UpdateQuestion value)? updateQuestion,
+    TResult? Function(DeleteQuestion value)? deleteQuestion,
+    TResult? Function(ShowSettings value)? showSettings,
+    TResult? Function(CopyToClipboard value)? copyToClipboard,
+    TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
+    TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
+    TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
+    TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
+    TResult? Function(AiResponseStreamError value)? aiResponseStreamError,
+  }) {
+    return hideLocationHistory?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(Init value)? init,
+    TResult Function(LoadHomeData value)? load,
+    TResult Function(SendMessage value)? sendMessage,
+    TResult Function(CancelAiResponse value)? cancelAiResponse,
+    TResult Function(ResetConversation value)? resetConversation,
+    TResult Function(ShowFrequentQuestions value)? showFrequentQuestions,
+    TResult Function(LoadFrequentQuestions value)? loadFrequentQuestions,
+    TResult Function(AddQuestion value)? addQuestion,
+    TResult Function(UpdateQuestion value)? updateQuestion,
+    TResult Function(DeleteQuestion value)? deleteQuestion,
+    TResult Function(ShowSettings value)? showSettings,
+    TResult Function(CopyToClipboard value)? copyToClipboard,
+    TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
+    TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
+    TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
+    TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
+    TResult Function(AiResponseStreamError value)? aiResponseStreamError,
+    required TResult orElse(),
+  }) {
+    if (hideLocationHistory != null) {
+      return hideLocationHistory(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class HideLocationHistory implements HomeEvent {
+  const factory HideLocationHistory() = _$HideLocationHistoryImpl;
 }
 
 /// @nodoc
@@ -3143,6 +3436,7 @@ class _$CheckCurrentLocationImpl implements CheckCurrentLocation {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -3168,6 +3462,7 @@ class _$CheckCurrentLocationImpl implements CheckCurrentLocation {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -3193,6 +3488,7 @@ class _$CheckCurrentLocationImpl implements CheckCurrentLocation {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -3223,6 +3519,7 @@ class _$CheckCurrentLocationImpl implements CheckCurrentLocation {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -3249,6 +3546,7 @@ class _$CheckCurrentLocationImpl implements CheckCurrentLocation {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -3273,6 +3571,7 @@ class _$CheckCurrentLocationImpl implements CheckCurrentLocation {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -3375,6 +3674,7 @@ class _$AiResponseStreamChangedImpl implements AiResponseStreamChanged {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -3400,6 +3700,7 @@ class _$AiResponseStreamChangedImpl implements AiResponseStreamChanged {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -3425,6 +3726,7 @@ class _$AiResponseStreamChangedImpl implements AiResponseStreamChanged {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -3455,6 +3757,7 @@ class _$AiResponseStreamChangedImpl implements AiResponseStreamChanged {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -3481,6 +3784,7 @@ class _$AiResponseStreamChangedImpl implements AiResponseStreamChanged {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -3505,6 +3809,7 @@ class _$AiResponseStreamChangedImpl implements AiResponseStreamChanged {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -3587,6 +3892,7 @@ class _$AiResponseStreamDoneImpl implements AiResponseStreamDone {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -3612,6 +3918,7 @@ class _$AiResponseStreamDoneImpl implements AiResponseStreamDone {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -3637,6 +3944,7 @@ class _$AiResponseStreamDoneImpl implements AiResponseStreamDone {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -3667,6 +3975,7 @@ class _$AiResponseStreamDoneImpl implements AiResponseStreamDone {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -3693,6 +4002,7 @@ class _$AiResponseStreamDoneImpl implements AiResponseStreamDone {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -3717,6 +4027,7 @@ class _$AiResponseStreamDoneImpl implements AiResponseStreamDone {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -3819,6 +4130,7 @@ class _$AiResponseStreamErrorImpl implements AiResponseStreamError {
     required TResult Function() showSettings,
     required TResult Function(String message) copyToClipboard,
     required TResult Function() showLocationHistory,
+    required TResult Function() hideLocationHistory,
     required TResult Function() checkCurrentLocation,
     required TResult Function(String chunk) aiResponseStreamChanged,
     required TResult Function() aiResponseStreamDone,
@@ -3844,6 +4156,7 @@ class _$AiResponseStreamErrorImpl implements AiResponseStreamError {
     TResult? Function()? showSettings,
     TResult? Function(String message)? copyToClipboard,
     TResult? Function()? showLocationHistory,
+    TResult? Function()? hideLocationHistory,
     TResult? Function()? checkCurrentLocation,
     TResult? Function(String chunk)? aiResponseStreamChanged,
     TResult? Function()? aiResponseStreamDone,
@@ -3869,6 +4182,7 @@ class _$AiResponseStreamErrorImpl implements AiResponseStreamError {
     TResult Function()? showSettings,
     TResult Function(String message)? copyToClipboard,
     TResult Function()? showLocationHistory,
+    TResult Function()? hideLocationHistory,
     TResult Function()? checkCurrentLocation,
     TResult Function(String chunk)? aiResponseStreamChanged,
     TResult Function()? aiResponseStreamDone,
@@ -3899,6 +4213,7 @@ class _$AiResponseStreamErrorImpl implements AiResponseStreamError {
     required TResult Function(ShowSettings value) showSettings,
     required TResult Function(CopyToClipboard value) copyToClipboard,
     required TResult Function(ShowLocationHistory value) showLocationHistory,
+    required TResult Function(HideLocationHistory value) hideLocationHistory,
     required TResult Function(CheckCurrentLocation value) checkCurrentLocation,
     required TResult Function(AiResponseStreamChanged value)
         aiResponseStreamChanged,
@@ -3925,6 +4240,7 @@ class _$AiResponseStreamErrorImpl implements AiResponseStreamError {
     TResult? Function(ShowSettings value)? showSettings,
     TResult? Function(CopyToClipboard value)? copyToClipboard,
     TResult? Function(ShowLocationHistory value)? showLocationHistory,
+    TResult? Function(HideLocationHistory value)? hideLocationHistory,
     TResult? Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult? Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult? Function(AiResponseStreamDone value)? aiResponseStreamDone,
@@ -3949,6 +4265,7 @@ class _$AiResponseStreamErrorImpl implements AiResponseStreamError {
     TResult Function(ShowSettings value)? showSettings,
     TResult Function(CopyToClipboard value)? copyToClipboard,
     TResult Function(ShowLocationHistory value)? showLocationHistory,
+    TResult Function(HideLocationHistory value)? hideLocationHistory,
     TResult Function(CheckCurrentLocation value)? checkCurrentLocation,
     TResult Function(AiResponseStreamChanged value)? aiResponseStreamChanged,
     TResult Function(AiResponseStreamDone value)? aiResponseStreamDone,

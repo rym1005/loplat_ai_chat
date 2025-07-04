@@ -19,11 +19,14 @@ mixin _$HomeState {
   List<Message> get messages => throw _privateConstructorUsedError;
   bool get isAiResponding => throw _privateConstructorUsedError;
   bool get isLoading => throw _privateConstructorUsedError;
+  bool get isShowingLocationHistory => throw _privateConstructorUsedError;
   bool get isShowingFrequentQuestions => throw _privateConstructorUsedError;
   String? get errorMessage => throw _privateConstructorUsedError;
   List<FrequentQuestion> get frequentQuestions =>
       throw _privateConstructorUsedError;
   String get selectedCategory => throw _privateConstructorUsedError;
+  List<LocationHistory> get locationHistory =>
+      throw _privateConstructorUsedError;
   String? get currentAiResponse => throw _privateConstructorUsedError;
 
   /// Create a copy of HomeState
@@ -42,10 +45,12 @@ abstract class $HomeStateCopyWith<$Res> {
       {List<Message> messages,
       bool isAiResponding,
       bool isLoading,
+      bool isShowingLocationHistory,
       bool isShowingFrequentQuestions,
       String? errorMessage,
       List<FrequentQuestion> frequentQuestions,
       String selectedCategory,
+      List<LocationHistory> locationHistory,
       String? currentAiResponse});
 }
 
@@ -67,10 +72,12 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
     Object? messages = null,
     Object? isAiResponding = null,
     Object? isLoading = null,
+    Object? isShowingLocationHistory = null,
     Object? isShowingFrequentQuestions = null,
     Object? errorMessage = freezed,
     Object? frequentQuestions = null,
     Object? selectedCategory = null,
+    Object? locationHistory = null,
     Object? currentAiResponse = freezed,
   }) {
     return _then(_value.copyWith(
@@ -85,6 +92,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isShowingLocationHistory: null == isShowingLocationHistory
+          ? _value.isShowingLocationHistory
+          : isShowingLocationHistory // ignore: cast_nullable_to_non_nullable
               as bool,
       isShowingFrequentQuestions: null == isShowingFrequentQuestions
           ? _value.isShowingFrequentQuestions
@@ -102,6 +113,10 @@ class _$HomeStateCopyWithImpl<$Res, $Val extends HomeState>
           ? _value.selectedCategory
           : selectedCategory // ignore: cast_nullable_to_non_nullable
               as String,
+      locationHistory: null == locationHistory
+          ? _value.locationHistory
+          : locationHistory // ignore: cast_nullable_to_non_nullable
+              as List<LocationHistory>,
       currentAiResponse: freezed == currentAiResponse
           ? _value.currentAiResponse
           : currentAiResponse // ignore: cast_nullable_to_non_nullable
@@ -122,10 +137,12 @@ abstract class _$$HomeStateImplCopyWith<$Res>
       {List<Message> messages,
       bool isAiResponding,
       bool isLoading,
+      bool isShowingLocationHistory,
       bool isShowingFrequentQuestions,
       String? errorMessage,
       List<FrequentQuestion> frequentQuestions,
       String selectedCategory,
+      List<LocationHistory> locationHistory,
       String? currentAiResponse});
 }
 
@@ -145,10 +162,12 @@ class __$$HomeStateImplCopyWithImpl<$Res>
     Object? messages = null,
     Object? isAiResponding = null,
     Object? isLoading = null,
+    Object? isShowingLocationHistory = null,
     Object? isShowingFrequentQuestions = null,
     Object? errorMessage = freezed,
     Object? frequentQuestions = null,
     Object? selectedCategory = null,
+    Object? locationHistory = null,
     Object? currentAiResponse = freezed,
   }) {
     return _then(_$HomeStateImpl(
@@ -163,6 +182,10 @@ class __$$HomeStateImplCopyWithImpl<$Res>
       isLoading: null == isLoading
           ? _value.isLoading
           : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
+      isShowingLocationHistory: null == isShowingLocationHistory
+          ? _value.isShowingLocationHistory
+          : isShowingLocationHistory // ignore: cast_nullable_to_non_nullable
               as bool,
       isShowingFrequentQuestions: null == isShowingFrequentQuestions
           ? _value.isShowingFrequentQuestions
@@ -180,6 +203,10 @@ class __$$HomeStateImplCopyWithImpl<$Res>
           ? _value.selectedCategory
           : selectedCategory // ignore: cast_nullable_to_non_nullable
               as String,
+      locationHistory: null == locationHistory
+          ? _value._locationHistory
+          : locationHistory // ignore: cast_nullable_to_non_nullable
+              as List<LocationHistory>,
       currentAiResponse: freezed == currentAiResponse
           ? _value.currentAiResponse
           : currentAiResponse // ignore: cast_nullable_to_non_nullable
@@ -195,13 +222,16 @@ class _$HomeStateImpl implements _HomeState {
       {final List<Message> messages = const [],
       this.isAiResponding = false,
       this.isLoading = false,
+      this.isShowingLocationHistory = false,
       this.isShowingFrequentQuestions = false,
       this.errorMessage,
       final List<FrequentQuestion> frequentQuestions = const [],
       this.selectedCategory = '위치',
+      final List<LocationHistory> locationHistory = const [],
       this.currentAiResponse})
       : _messages = messages,
-        _frequentQuestions = frequentQuestions;
+        _frequentQuestions = frequentQuestions,
+        _locationHistory = locationHistory;
 
   final List<Message> _messages;
   @override
@@ -220,6 +250,9 @@ class _$HomeStateImpl implements _HomeState {
   final bool isLoading;
   @override
   @JsonKey()
+  final bool isShowingLocationHistory;
+  @override
+  @JsonKey()
   final bool isShowingFrequentQuestions;
   @override
   final String? errorMessage;
@@ -236,12 +269,21 @@ class _$HomeStateImpl implements _HomeState {
   @override
   @JsonKey()
   final String selectedCategory;
+  final List<LocationHistory> _locationHistory;
+  @override
+  @JsonKey()
+  List<LocationHistory> get locationHistory {
+    if (_locationHistory is EqualUnmodifiableListView) return _locationHistory;
+    // ignore: implicit_dynamic_type
+    return EqualUnmodifiableListView(_locationHistory);
+  }
+
   @override
   final String? currentAiResponse;
 
   @override
   String toString() {
-    return 'HomeState(messages: $messages, isAiResponding: $isAiResponding, isLoading: $isLoading, isShowingFrequentQuestions: $isShowingFrequentQuestions, errorMessage: $errorMessage, frequentQuestions: $frequentQuestions, selectedCategory: $selectedCategory, currentAiResponse: $currentAiResponse)';
+    return 'HomeState(messages: $messages, isAiResponding: $isAiResponding, isLoading: $isLoading, isShowingLocationHistory: $isShowingLocationHistory, isShowingFrequentQuestions: $isShowingFrequentQuestions, errorMessage: $errorMessage, frequentQuestions: $frequentQuestions, selectedCategory: $selectedCategory, locationHistory: $locationHistory, currentAiResponse: $currentAiResponse)';
   }
 
   @override
@@ -254,6 +296,9 @@ class _$HomeStateImpl implements _HomeState {
                 other.isAiResponding == isAiResponding) &&
             (identical(other.isLoading, isLoading) ||
                 other.isLoading == isLoading) &&
+            (identical(
+                    other.isShowingLocationHistory, isShowingLocationHistory) ||
+                other.isShowingLocationHistory == isShowingLocationHistory) &&
             (identical(other.isShowingFrequentQuestions,
                     isShowingFrequentQuestions) ||
                 other.isShowingFrequentQuestions ==
@@ -264,6 +309,8 @@ class _$HomeStateImpl implements _HomeState {
                 .equals(other._frequentQuestions, _frequentQuestions) &&
             (identical(other.selectedCategory, selectedCategory) ||
                 other.selectedCategory == selectedCategory) &&
+            const DeepCollectionEquality()
+                .equals(other._locationHistory, _locationHistory) &&
             (identical(other.currentAiResponse, currentAiResponse) ||
                 other.currentAiResponse == currentAiResponse));
   }
@@ -274,10 +321,12 @@ class _$HomeStateImpl implements _HomeState {
       const DeepCollectionEquality().hash(_messages),
       isAiResponding,
       isLoading,
+      isShowingLocationHistory,
       isShowingFrequentQuestions,
       errorMessage,
       const DeepCollectionEquality().hash(_frequentQuestions),
       selectedCategory,
+      const DeepCollectionEquality().hash(_locationHistory),
       currentAiResponse);
 
   /// Create a copy of HomeState
@@ -294,10 +343,12 @@ abstract class _HomeState implements HomeState {
       {final List<Message> messages,
       final bool isAiResponding,
       final bool isLoading,
+      final bool isShowingLocationHistory,
       final bool isShowingFrequentQuestions,
       final String? errorMessage,
       final List<FrequentQuestion> frequentQuestions,
       final String selectedCategory,
+      final List<LocationHistory> locationHistory,
       final String? currentAiResponse}) = _$HomeStateImpl;
 
   @override
@@ -307,6 +358,8 @@ abstract class _HomeState implements HomeState {
   @override
   bool get isLoading;
   @override
+  bool get isShowingLocationHistory;
+  @override
   bool get isShowingFrequentQuestions;
   @override
   String? get errorMessage;
@@ -314,6 +367,8 @@ abstract class _HomeState implements HomeState {
   List<FrequentQuestion> get frequentQuestions;
   @override
   String get selectedCategory;
+  @override
+  List<LocationHistory> get locationHistory;
   @override
   String? get currentAiResponse;
 

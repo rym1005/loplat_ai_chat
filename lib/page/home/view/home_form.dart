@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'dart:convert';
 
+import 'package:common_utils_services/models/location_history.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -7,6 +9,7 @@ import 'package:common_utils_services/models/message.dart';
 import '../../../models/character.dart';
 import '../../../models/frequent_question.dart';
 import '../../../models/user_profile.dart';
+import '../../../utils/permission/permission_utils.dart';
 import '../../common/common_loading.dart';
 import '../bloc/home_bloc.dart';
 import '../bloc/home_event.dart';
@@ -24,10 +27,7 @@ class HomePage extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: BlocProvider(
-        create: (_) => HomeBloc(),
-        child: const HomeForm(),
-      ),
+      home: BlocProvider(create: (_) => HomeBloc(), child: const HomeForm()),
     );
   }
 }
@@ -117,6 +117,8 @@ class _HomeFormState extends State<HomeForm> {
                   ],
                 ),
                 if (state.isLoading) const CommonLoading(),
+                if (state.isShowingLocationHistory)
+                  LocationHistoryList(history: state.locationHistory),
               ],
             ),
           ),
@@ -606,23 +608,31 @@ class _HomeFormState extends State<HomeForm> {
                                     leading: const Icon(Icons.my_location),
                                     title: const Text('현재 위치 확인'),
                                     onTap: () async {
-                                      context.read<HomeBloc>().add(
-                                        CheckCurrentLocation(),
-                                      );
-
-                                      // todo rymins
-                                      // if (!hasPermission) {
-                                      //   ScaffoldMessenger.of(modalContext).showSnackBar(
-                                      //     const SnackBar(
-                                      //       content: Text(
-                                      //         '위치 권한이 허용되지 않아 위치 정보를 가져올 수 없습니다.',
-                                      //       ),
-                                      //       duration: Duration(seconds: 2),
-                                      //     ),
-                                      //   );
-                                      //   return;
-                                      // }
-                                      Navigator.pop(context);
+                                      final hasPermission =
+                                          await PermissionUtils.checkAndRequestPermission(
+                                            context,
+                                          );
+                                      if (context.mounted) {
+                                        if (hasPermission) {
+                                          context.read<HomeBloc>().add(
+                                            CheckCurrentLocation(),
+                                          );
+                                        }
+                                        if (!hasPermission) {
+                                          ScaffoldMessenger.of(
+                                            context,
+                                          ).showSnackBar(
+                                            const SnackBar(
+                                              content: Text(
+                                                '위치 권한이 허용되지 않아 위치 정보를 가져올 수 없습니다.',
+                                              ),
+                                              duration: Duration(seconds: 2),
+                                            ),
+                                          );
+                                          return;
+                                        }
+                                        Navigator.pop(context);
+                                      }
                                     },
                                   ),
                                   ListTile(
@@ -632,162 +642,7 @@ class _HomeFormState extends State<HomeForm> {
                                       context.read<HomeBloc>().add(
                                         ShowLocationHistory(),
                                       );
-                                      // final history =
-                                      //     _locationHistoryManager.locationHistory;
-                                      // if (history.isEmpty) {
-                                      //     ScaffoldMessenger.of(modalContext).showSnackBar(
-                                      //       const SnackBar(
-                                      //         content: Text('저장된 위치 히스토리가 없습니다.'),
-                                      //         duration: Duration(seconds: 2),
-                                      //       ),
-                                      //     );
-                                      //   return;
-                                      // }
-
-                                      // if (mounted) {
-                                      //   showDialog(
-                                      //     context: context,
-                                      //     builder: (BuildContext dialogContext) {
-                                      //       return AlertDialog(
-                                      //         title: const Text('위치 히스토리'),
-                                      //         content: SizedBox(
-                                      //           width: double.maxFinite,
-                                      //           height: 300,
-                                      //           child: ListView.builder(
-                                      //             itemCount: history.length,
-                                      //             itemBuilder: (context, index) {
-                                      //               final location = history[index];
-                                      //               return ListTile(
-                                      //                 leading: CircleAvatar(
-                                      //                   backgroundColor: Theme.of(
-                                      //                     context,
-                                      //                   ).colorScheme.primary,
-                                      //                   child: Text(
-                                      //                     '${index + 1}',
-                                      //                     style: TextStyle(
-                                      //                       color: Theme.of(
-                                      //                         context,
-                                      //                       ).colorScheme.onPrimary,
-                                      //                     ),
-                                      //                   ),
-                                      //                 ),
-                                      //                 title: Text(
-                                      //                   location.place?['name'] ??
-                                      //                       location.location?['name'],
-                                      //                   style: const TextStyle(
-                                      //                     fontWeight: FontWeight.bold,
-                                      //                   ),
-                                      //                 ),
-                                      //                 subtitle: Text(
-                                      //                   location.formattedTime,
-                                      //                 ),
-                                      //                 onTap: () {
-                                      //                   showDialog(
-                                      //                     context: context,
-                                      //                     builder: (BuildContext detailContext) {
-                                      //                       return AlertDialog(
-                                      //                         title: const Text(
-                                      //                           '상세 정보',
-                                      //                         ),
-                                      //                         content: SingleChildScrollView(
-                                      //                           child: Column(
-                                      //                             crossAxisAlignment:
-                                      //                             CrossAxisAlignment
-                                      //                                 .start,
-                                      //                             mainAxisSize:
-                                      //                             MainAxisSize.min,
-                                      //                             children: [
-                                      //                               if (location
-                                      //                                   .place !=
-                                      //                                   null) ...[
-                                      //                                 const Text(
-                                      //                                   '장소 정보:',
-                                      //                                   style: TextStyle(
-                                      //                                     fontWeight:
-                                      //                                     FontWeight
-                                      //                                         .bold,
-                                      //                                   ),
-                                      //                                 ),
-                                      //                                 Text(
-                                      //                                   const JsonEncoder.withIndent(
-                                      //                                     '  ',
-                                      //                                   ).convert(
-                                      //                                     location
-                                      //                                         .place,
-                                      //                                   ),
-                                      //                                 ),
-                                      //                                 const SizedBox(
-                                      //                                   height: 16,
-                                      //                                 ),
-                                      //                               ],
-                                      //                               if (location
-                                      //                                   .location !=
-                                      //                                   null) ...[
-                                      //                                 const Text(
-                                      //                                   '위치 정보:',
-                                      //                                   style: TextStyle(
-                                      //                                     fontWeight:
-                                      //                                     FontWeight
-                                      //                                         .bold,
-                                      //                                   ),
-                                      //                                 ),
-                                      //                                 Text(
-                                      //                                   const JsonEncoder.withIndent(
-                                      //                                     '  ',
-                                      //                                   ).convert(
-                                      //                                     location
-                                      //                                         .location,
-                                      //                                   ),
-                                      //                                 ),
-                                      //                                 const SizedBox(
-                                      //                                   height: 16,
-                                      //                                 ),
-                                      //                               ],
-                                      //                               const Text(
-                                      //                                 '시간:',
-                                      //                                 style: TextStyle(
-                                      //                                   fontWeight:
-                                      //                                   FontWeight
-                                      //                                       .bold,
-                                      //                                 ),
-                                      //                               ),
-                                      //                               Text(
-                                      //                                 location
-                                      //                                     .formattedTime,
-                                      //                               ),
-                                      //                             ],
-                                      //                           ),
-                                      //                         ),
-                                      //                         actions: [
-                                      //                           TextButton(
-                                      //                             onPressed: () =>
-                                      //                                 Navigator.pop(
-                                      //                                   detailContext,
-                                      //                                 ),
-                                      //                             child: const Text(
-                                      //                               '닫기',
-                                      //                             ),
-                                      //                           ),
-                                      //                         ],
-                                      //                       );
-                                      //                     },
-                                      //                   );
-                                      //                 },
-                                      //               );
-                                      //             },
-                                      //           ),
-                                      //         ),
-                                      //         actions: [
-                                      //           TextButton(
-                                      //             onPressed: () =>
-                                      //                 Navigator.pop(dialogContext),
-                                      //             child: const Text('닫기'),
-                                      //           ),
-                                      //         ],
-                                      //       );
-                                      //     },
-                                      //   );
-                                      // }
+                                      Navigator.pop(context);
                                     },
                                   ),
                                   ListTile(
@@ -930,7 +785,7 @@ class _HomeFormState extends State<HomeForm> {
             ),
             TextButton(
               onPressed: () {
-                context.read<HomeBloc>().add(HomeEvent.deleteQuestion(index));
+                context.read<HomeBloc>().add(DeleteQuestion(index));
                 Navigator.pop(context);
               },
               child: const Text('삭제'),
@@ -1010,6 +865,66 @@ class _HomeFormState extends State<HomeForm> {
           ],
         );
       },
+    );
+  }
+}
+
+class LocationHistoryList extends StatelessWidget {
+  final List<LocationHistory> _history;
+
+  const LocationHistoryList({super.key, required List<LocationHistory> history})
+    : _history = history;
+
+  @override
+  Widget build(BuildContext context) {
+    final history = _history;
+    return Container(
+      color: Colors.black26,
+      alignment: Alignment.center,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          AlertDialog(
+            content: SizedBox(
+              width: double.maxFinite,
+              height: 300,
+              child: ListView.builder(
+                itemCount: history.length,
+                itemBuilder: (context, index) {
+                  final location = history[index];
+                  return ListTile(
+                    leading: CircleAvatar(
+                      backgroundColor: Theme.of(context).colorScheme.primary,
+                      child: Text(
+                        '${index + 1}',
+                        style: TextStyle(
+                          color: Theme.of(context).colorScheme.onPrimary,
+                        ),
+                      ),
+                    ),
+                    title: Text(
+                      location.place?['name'] ?? location.location?['name'],
+                      style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                    subtitle: Text(location.formattedTime),
+                    onTap: () {
+                    },
+                  );
+                },
+              ),
+            ),
+            actions: [
+              TextButton(
+                onPressed: () {
+                  context.read<HomeBloc>().add(HideLocationHistory());
+                },
+                child: const Text('닫기'),
+              ),
+            ],
+          ),
+        ],
+      ),
     );
   }
 }

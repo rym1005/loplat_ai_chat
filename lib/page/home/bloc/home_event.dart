@@ -25,6 +25,7 @@ class HomeEvent with _$HomeEvent {
   const factory HomeEvent.showSettings() = ShowSettings;
   const factory HomeEvent.copyToClipboard(String message) = CopyToClipboard;
   const factory HomeEvent.showLocationHistory() = ShowLocationHistory;
+  const factory HomeEvent.hideLocationHistory() = HideLocationHistory;
   const factory HomeEvent.checkCurrentLocation() = CheckCurrentLocation;
   const factory HomeEvent.aiResponseStreamChanged(String chunk) =
       AiResponseStreamChanged;
