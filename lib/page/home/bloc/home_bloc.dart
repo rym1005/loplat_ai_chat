@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'package:common_utils_services/services/notification_service.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart'
     hide Message;
@@ -9,12 +8,10 @@ import 'package:hive/hive.dart';
 import 'package:common_utils_services/models/location_history.dart';
 import 'package:common_utils_services/models/message.dart';
 import 'package:common_utils_services/services/ai_services.dart';
-import '../../../models/frequent_question.dart';
 import '../../../services/frequent_question_service.dart';
 import 'package:common_utils_services/utils/location_utils.dart';
 import '../../../services/settings_service.dart';
 import '../../../utils/permission/permission_utils.dart';
-import '../../../services/tts_service.dart';
 import 'home_event.dart';
 import 'home_state.dart';
 
@@ -29,10 +26,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   late NotificationService? _notificationService;
   StreamSubscription? _aiResponseSubscription;
 
-  static const EVENT_CHANNEL = 'plengi.ai/toFlutter';
-
   BuildContext? _context;
-  final methodChannel = MethodChannel(EVENT_CHANNEL);
 
   HomeBloc() : super(const HomeState()) {
     on<Init>(_onInit);
@@ -65,6 +59,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
           AndroidFlutterLocalNotificationsPlugin
         >()
         ?.requestNotificationsPermission();
+    initSubscription();
+  }
+
+  void initSubscription() {
+    _locationHistoryManager.initialize(10, (location) {
+      print("rymins : $location");
+      // chatPush(location);
+    });
   }
 
   Future<void> _initHive(Emitter<HomeState> emit) async {
@@ -91,7 +93,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     return response.split('\n')[0];
   }
 
-  Future<void> _onHistorySummary() async{
+  Future<void> _onHistorySummary() async {
     await _locationHistoryManager.initialize(10, (location) {
       Future.microtask(() async {
         final data = await AIServices.instance.getAIResponse(location, []);
@@ -138,13 +140,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     _aiResponseSubscription?.cancel();
     emit(state.copyWith(currentAiResponse: ''));
 
-    final setting = SettingsService();
     try {
       String locationContext = '';
-      setting.getPromptWithLocationChat();
+      locationContext = _locationHistoryManager.locationHistory.firstOrNull.toString();
+
       _aiResponseSubscription = AIServices.instance
           .getAIResponseStream(
-            setting.getPromptWithLocationChat(),
+            SettingsService().getPrompt(),
             '$locationContext\n${event.message}',
             state.messages,
           )
@@ -264,6 +266,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
   ) {
     emit(state.copyWith(isLoading: true));
     try {
+      print("rymins ${_locationHistoryManager.locationHistory.length}");
       emit(
         state.copyWith(
           isLoading: false,
@@ -272,13 +275,14 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
         ),
       );
     } catch (e) {
-      emit(state.copyWith(isLoading: false, errorMessage: "데이터를 불러오지 못했습니다"));
+      emit(state.copyWith(isLoading: false, errorMessage: "데이터를 불러오지 못했습니다$e"));
     }
   }
+
   void _onHideLocationHistory(
-      HideLocationHistory event,
-      Emitter<HomeState> emit,
-      ) {
+    HideLocationHistory event,
+    Emitter<HomeState> emit,
+  ) {
     emit(state.copyWith(isShowingLocationHistory: false));
   }
 
@@ -286,7 +290,8 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     CheckCurrentLocation event,
     Emitter<HomeState> emit,
   ) async {
-    await LocationUtils.getCurrentLocation();
+    final currentLocation  = await LocationUtils.getCurrentLocation();
+    print("rymins currentLocation : $currentLocation");
   }
 
   Future<void> _onShowFrequentQuestions(
@@ -315,5 +320,18 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
     _locationHistoryManager.dispose();
     frequentQuestionService.dispose();
     return super.close();
+  }
+
+  void chatPush(String location) async {
+    try {
+      final chat = await AIServices.instance
+          .getAIResponseWithLocation(
+            prompt: SettingsService().getPrompt(),
+            userlocation: location,
+          );
+      await _notificationService?.showNotification(title: "Ai-Chat", body: chat);
+    } catch (e) {
+      print("rymins $e");
+    }
   }
 }

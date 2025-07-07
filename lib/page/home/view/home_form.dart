@@ -608,31 +608,12 @@ class _HomeFormState extends State<HomeForm> {
                                     leading: const Icon(Icons.my_location),
                                     title: const Text('현재 위치 확인'),
                                     onTap: () async {
-                                      final hasPermission =
-                                          await PermissionUtils.checkAndRequestPermission(
-                                            context,
-                                          );
                                       if (context.mounted) {
-                                        if (hasPermission) {
-                                          context.read<HomeBloc>().add(
-                                            CheckCurrentLocation(),
-                                          );
-                                        }
-                                        if (!hasPermission) {
-                                          ScaffoldMessenger.of(
-                                            context,
-                                          ).showSnackBar(
-                                            const SnackBar(
-                                              content: Text(
-                                                '위치 권한이 허용되지 않아 위치 정보를 가져올 수 없습니다.',
-                                              ),
-                                              duration: Duration(seconds: 2),
-                                            ),
-                                          );
-                                          return;
-                                        }
-                                        Navigator.pop(context);
+                                        context.read<HomeBloc>().add(
+                                          CheckCurrentLocation(),
+                                        );
                                       }
+                                      Navigator.pop(context);
                                     },
                                   ),
                                   ListTile(
@@ -908,8 +889,7 @@ class LocationHistoryList extends StatelessWidget {
                       style: const TextStyle(fontWeight: FontWeight.bold),
                     ),
                     subtitle: Text(location.formattedTime),
-                    onTap: () {
-                    },
+                    onTap: () {},
                   );
                 },
               ),
